@@ -1,3 +1,4 @@
+#include <conio.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -113,6 +114,10 @@ int main() {
     };
 
     // Meminta input username dan password dari pengguna
+    printf("==========================\n");
+    printf("WELCOME TO AbJAT SHOPPING!\n");
+    printf("==========================\n");
+    printf("\n");
     printf("Input Username: ");
     scanf("%s", username);
 
@@ -121,24 +126,37 @@ int main() {
 
     // Membandingkan input dengan username dan password yang valid
     if (strcmp(username, adminUsername) == 0 && strcmp(password, adminPassword) == 0) {
-        printf("Login as Admin successful!\n");
-        int adminChoice;
-        
-        while (1) {
-            printf("\nAdmin Menu:\n1. View Products\n2. Add Stock\n3. Exit\nChoose an option: ");
-            scanf("%d", &adminChoice);
-
-            if (adminChoice == 1) {
-                displayProducts(products, MAX_PRODUCTS);
-            } else if (adminChoice == 2) {
-                addStock(products, MAX_PRODUCTS);
-            } else if (adminChoice == 3) {
-                printf("Exiting admin menu.\n");
-                break;
-            } else {
-                printf("Invalid choice, please try again.\n");
-            }
+    printf("Login as Admin successful!\n");
+    int adminChoice;
+    char arrayMenu[5][100] =  {
+        "\nAdmin Menu:", 
+        "\n1. View Products", 
+        "\n2. Add Stock", 
+        "\n3. Exit", 
+        "\nChoose an option: "
+    };
+    
+    while (1) {
+        // Tampilkan menu
+        for (int i = 0; i < 5; i++) {
+            printf("%s", arrayMenu[i]);
         }
+
+        // Ambil input pilihan admin
+        scanf("%d", &adminChoice);
+
+        if (adminChoice == 1) {
+            displayProducts(products, MAX_PRODUCTS);
+        } else if (adminChoice == 2) {
+            addStock(products, MAX_PRODUCTS);
+        } else if (adminChoice == 3) {
+            printf("Exiting admin menu.\n");
+            break;
+        } else {
+            printf("Invalid choice, please try again.\n");
+        }
+    };
+
     } else if (strcmp(username, userUsername) == 0 && strcmp(password, userPassword) == 0) {
         printf("\nLogin as User successful!\n");
         
