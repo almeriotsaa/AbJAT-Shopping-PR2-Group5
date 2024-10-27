@@ -126,7 +126,7 @@ int main() {
 
     // Membandingkan input dengan username dan password yang valid
     if (strcmp(username, adminUsername) == 0 && strcmp(password, adminPassword) == 0) {
-    printf("Login as Admin successful!\n");
+    printf("Login as Admin successful!!\n");
     int adminChoice;
     char arrayMenu[5][100] =  {
         "\nAdmin Menu:", 
